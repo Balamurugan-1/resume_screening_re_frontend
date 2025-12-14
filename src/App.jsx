@@ -4,8 +4,11 @@ import "./index.css";
 function App() {
   return (
     <div className="container">
-      <h1>AI Resume Screening</h1>
-      <p>Analyze and improve your resume using AI</p>
+      <h1>AI Resume Analyzer</h1>
+    <p>
+      ATS-aware resume scoring 
+    </p>
+
       <ResumeAnalyzer />
     </div>
   );
