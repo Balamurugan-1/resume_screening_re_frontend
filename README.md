@@ -1,16 +1,113 @@
-# React + Vite
+# AI Resume Analyzer & ATS Optimizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **full-stack AI application** that analyzes resumes against job descriptions, computes semantic similarity, and generates ATS-optimized resume improvements using large language models. The system presents results through a modern web UI with a side-by-side comparison of improved resume text and its LaTeX source.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+- **Frontend**: https://693e9323af115fde646bbcc6--voluble-concha-f6949c.netlify.app
+- **Backend API**: https://resume-screening-re.onrender.com
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> ℹ️ Repositories are kept private. Code can be shared on request.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Problem Statement
+
+Most candidates struggle to tailor their resumes for specific job descriptions and Applicant Tracking Systems (ATS).  
+Manual optimization is time-consuming, inconsistent, and often ineffective.
+
+This project solves that by:
+- Automatically evaluating resume–JD compatibility
+- Identifying missing or weak skills
+- Rewriting resumes in an ATS-aligned manner
+- Providing both human-readable output and LaTeX source for further customization
+
+---
+
+## ✨ Key Features
+
+- 📄 **Resume Parsing** — Upload PDF/DOCX resumes and extract clean text
+- 📝 **Job Description Analysis** — Normalize and process JD input
+- 🔍 **Semantic Similarity Scoring** — Embedding-based resume ↔ JD matching
+- 🤖 **LLM-Powered Resume Optimization** — Skill gap analysis and rewrite
+- 📊 **Score Comparison** — Before vs after improvement scores
+- 🧩 **Split View UI** — Side-by-side improved resume text and LaTeX source
+- 📋 **One-Click Copy** — Copy resume text or LaTeX instantly
+- ☁️ **Cloud Deployed** — Backend and frontend deployed on cloud platforms
+
+---
+
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React
+- Vite
+- Modern CSS (custom design system)
+- Deployed on Netlify
+
+### Backend
+- FastAPI
+- Python
+- Google Gemini API (Embeddings + LLM)
+- Pydantic (schema validation)
+- Docker
+- Deployed on Render
+
+---
+
+## 🔬 How It Works
+
+1. **Resume Upload**
+   - User uploads a PDF or DOCX resume
+   - Backend extracts and cleans text
+
+2. **Job Description Input**
+   - User provides a job description
+   - Text is normalized for analysis
+
+3. **Similarity Scoring**
+   - Resume and JD are converted into embeddings
+   - Cosine similarity is computed (0–100 score)
+
+4. **Resume Improvement**
+   - LLM identifies missing skills and weak sections
+   - Resume is rewritten to better align with the JD
+   - Improvements avoid hallucinating experience
+
+5. **Result Presentation**
+   - Original vs improved scores are shown
+   - Improved resume text and LaTeX source are displayed side by side
+
+---
+
+## 🧠 Design Considerations
+
+- **Deterministic First**: Similarity scoring is embedding-based, not prompt-based
+- **Structured LLM Output**: All LLM responses follow strict JSON schemas
+- **Safety & Reliability**:
+  - Input truncation
+  - Retry logic for LLM calls
+  - Schema validation
+- **Developer-Friendly Output**:
+  - LaTeX source enables easy editing or Overleaf usage
+- **Production-Oriented**:
+  - Dockerized backend
+  - Environment-variable based secrets
+  - CORS-safe API design
+
+---
+
+## 🔐 Security & Configuration
+
+- API keys are stored securely as environment variables
+- No secrets are committed to the repository
+- Frontend does not expose any sensitive credentials
+
+
+
+
